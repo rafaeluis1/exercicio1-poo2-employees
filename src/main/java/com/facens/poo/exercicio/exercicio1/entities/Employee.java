@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.facens.poo.exercicio.exercicio1.dto.EmployeeInsertDTO;
+
 @Entity
 @Table(name = "tb_employee")
 public class Employee implements Serializable {
@@ -23,6 +25,16 @@ public class Employee implements Serializable {
     private String cargo;
     private String address;
     private Double salary;
+
+    public Employee() {
+    }
+
+    public Employee(EmployeeInsertDTO insertDTO) {
+        this.name = insertDTO.getName();
+        this.cargo = insertDTO.getCargo();
+        this.address = insertDTO.getAddress();
+        this.salary = insertDTO.getSalary();
+    }
 
     public Integer getId() {
         return id;
